@@ -86,15 +86,21 @@ def check(link, year):
         print('no')
         return False
     '''
+def push(start, end):
+    print("push...")
+    all_posts = json.load(open("mydict.txt"))
+    print((all_posts))
 
 
 
 
 if __name__ == '__main__':
     pages = 355#2000~2352
-
-    for post in get_pages(pages):
-        print(post['push'], post['title'], post['date'], post['author'])
+    if sys.argv[1]=='crawl':
+        for post in get_pages(pages):
+            print(post['push'], post['title'], post['date'], post['author'])
+    if sys.argv[1] == 'push':
+        push(sys.argv[2], sys.argv[3])
 
 
 
